@@ -1,0 +1,29 @@
+<h1>Edit student details</h1>
+
+<%= form_with model: @student, local: true do |f| %>
+
+    <p>
+        <%= f.label :Student_Name %><br>
+        <%= f.text_field :stu_name %>
+    </p> 
+
+    <p>
+        <%= f.label :Roll_no %><br>
+        <%= f.text_area :rollno %>
+    </p>
+     <p>
+        <%= f.label :Course %><br>
+        <%= f.text_area :course %>
+    </p>
+     <p>
+        <%= f.label :Phone %><br>
+        <%= f.text_area :phone %>
+    </p>
+    <p>
+    <%= f.submit %>
+    </p>
+
+    
+<% end %>
+
+<%= link_to 'Cancel and back to students listing', students_path %>

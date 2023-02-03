@@ -1,0 +1,32 @@
+<h1>Create New student data</h1>
+<% if @student.errors.any? %>
+    <h2>The following errors prevented the student from being saved </h2>
+    <ul>
+        <% @student.errors.full_messages.each do |msg| %>
+            <li> <%= msg %> </li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= form_with model: @student do | form | %>
+    <div>
+        <%= form.label :Student_Name %><br>
+        <%= form.text_field :stu_name %><br>
+    </div>
+    <div>
+        <%= form.label :Roll_no %><br>
+        <%= form.text_field :rollno %><br>
+    </div>
+      <div>
+        <%= form.label :Course %><br>
+        <%= form.text_field :course %><br>
+    </div>
+      <div>
+        <%= form.label :Phone %><br>
+        <%= form.text_field :phone %><br>
+    </div>
+      <div>
+        <%= form.submit %>
+    </div>
+<% end %> 
+
