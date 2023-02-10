@@ -12,7 +12,7 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.new(params.require(:student).permit(:stu_name , :rollno ,:course ,:phone)) 
+    @student = Student.new(student_params) 
     if @student.save
       flash[:notice] = "Successfully created student."
       redirect_to @student
@@ -27,9 +27,9 @@ class StudentsController < ApplicationController
 
   def update
       @student = Student.find(params[:id])
-      if @student.update(params.require(:student).permit(:stu_name ,:rollno ,:course ,:phone))
+      if @student.update(student_params)
         flash[:notice] = "Student updated successfully."
-        redirect_to @student
+        redirect_to student_path
       else
         render 'edit'
       end
@@ -40,5 +40,10 @@ class StudentsController < ApplicationController
     @student.destroy
     flash[:notice] = "Student deleted successfully."
     redirect_to students_path
+  end
+
+  private
+  def student_params
+    params.require(:student).permit(:stu_name ,:rollno ,:course ,:phone)
   end
 end

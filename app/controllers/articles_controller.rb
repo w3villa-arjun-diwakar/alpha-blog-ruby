@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+
+    # after_action :testApp
+
     def show
         @article = Article.find(params[:id])
     end
@@ -39,4 +42,9 @@ class ArticlesController < ApplicationController
         redirect_to articles_path
         
     end
+
+    # private
+    # def testApp
+    #     puts "I am testApp callback2"
+    # end
 end

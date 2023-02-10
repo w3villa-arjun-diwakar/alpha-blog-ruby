@@ -1,0 +1,50 @@
+body{
+    background-color:lightgrey;
+}
+.navbar{
+    background-color:#45d3dd;
+}
+
+#navlink{
+    color: white;
+}
+#logo{
+    float: left;
+    font-size: 1.7em;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+.article-button{
+    display: block ruby;
+}
+
+
+#para{
+    font-size: 1.2em;
+}
+
+.jumbotron{
+    background-image: asset-url('bg.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    height: 100%;
+    margin-top: 50px
+}
+
+.fixed-bottom{
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    color: white;
+}
+
+#footer-text{
+    margin: 10px 0;
+    text-align: center;
+}
