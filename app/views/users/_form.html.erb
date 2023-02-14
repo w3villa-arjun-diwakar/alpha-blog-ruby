@@ -18,12 +18,12 @@
                 <div class="form-group row">
                     <%= f.label :Password, class:"col-2 col-form-label text-light" %>
                     <div  class="col-10">
-                    <%= f.password_field :password , class:"form-control" , placeholder:"Write password"%>
+                    <%= f.password_field :password, class:"form-control" , placeholder:"Write password"%>
                     </div>
                 </div>
                 <p>
                 <div class="form-group row justify-content-center">
-                <%= f.submit "Sign up", class:"btn btn-outline-light btn-lg ", style:"width: fit-content; "%>
+                <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class:"btn btn-outline-light btn-lg ", style:"width: fit-content; ")%>
                 </p>
                 </div>
                 
