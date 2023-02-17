@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user =User.find(params[:id])
+        @user = User.find(params[:id])
         @articles = @user.articles
     end
 
@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
+            session[:user_id] = @user.id
             flash[:notice] ="Welcome to the alphablog #{@user.username} you have signed up successfully"
             redirect_to articles_path
         

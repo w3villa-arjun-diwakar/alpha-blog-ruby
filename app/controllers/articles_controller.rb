@@ -1,7 +1,5 @@
 class ArticlesController < ApplicationController
 
-    # after_action :testApp
-
     def show
         @article = Article.find(params[:id])
     end
@@ -17,7 +15,7 @@ class ArticlesController < ApplicationController
     end
     def create
         @article = Article.new(params.require(:article).permit(:title, :description))
-        @article.user = User.first  
+        @article.user = current_user  
         if @article.save
             flash[:notice] = "Article was created succesfully!"
             redirect_to @article
