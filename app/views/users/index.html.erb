@@ -10,7 +10,7 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title"><%= pluralize(user.articles.count ,"Article") %></h5>
-                    <%= link_to 'View Profile', user_path(user), class:"btn btn-outline-success"%></a>
+                    <%= link_to 'View Articles', user_path(user), class:"btn btn-outline-success"%></a>
                 </div>
                 <div class="card-footer text-muted">
                     <small>joined <%=time_ago_in_words(user.created_at)%> ago</small>
@@ -19,6 +19,9 @@
         </div>
     </div>
     <% end %>
+</div>
+<div class="flickr_pagination ">
+    <%= will_paginate @users, :container => false%>
 </div>
 
 
