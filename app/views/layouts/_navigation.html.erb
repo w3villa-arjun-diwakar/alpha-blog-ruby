@@ -17,14 +17,25 @@
           <% if logged_in?%>
             <%= link_to "Create Article", new_article_path , class: "nav-link" , id:"navlink"%>
         </li>
-        <% if logged_in?%>
-          <li class="nav-item" >
-            <%= link_to current_user.username, user_path(current_user) , class: "nav-link btn btn-link" , id:"navlink" %>
-          </li>
-          <% end %>
+        <li> 
+          <div class="dropdown">
+              <a class="dropdown-toggle nav-link", style="color: white;" data-bs-toggle="dropdown" >
+                <%= "(Admin)" if current_user.admin? %> Profile [<%= current_user.username %>]
+              </a>
+
+              <ul class="dropdown-menu text-center " ,aria-labelledby="dropdownMenuLink" , style="background-color: #45d3dd;">
+                 
+                  <li><%= link_to "View profile", user_path(current_user) , class:'text-white text-decoration-none' %> </li>    
+                  <li><%= link_to 'Edit profile', edit_user_path(current_user) , class:'text-white text-decoration-none' %> </li>
+                   
+              </ul>
+          </div>
+        </li>
+
           <li class="nav-item" >
             <%= button_to "Log out", logout_path , method: :delete , class: "nav-link btn btn-link" , id:"navlink" %>
           </li>
+          <li><%= button_to 'Delete profile', user_path(current_user) ,method: :delete, data: {confirm: "Are you sure?"}, class:'nav-link btn btn-link text-danger' %> </li>
           <% else %>
             <li class="nav-item" >
               <%= link_to "Log in", login_path , class: "nav-link" , id:"navlink"%>
