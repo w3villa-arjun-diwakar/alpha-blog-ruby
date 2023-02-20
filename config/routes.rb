@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "signup" , to:"users#new"
   resources :articles 
   resources :users, except: [:new]
+  resources :categories, except: [:destroy]
    # resources :students
 
 end
