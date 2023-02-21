@@ -14,8 +14,10 @@
           <%= link_to "Bloggers", users_path , class: "nav-link" , id:"navlink"%>
         </li>
         <li class="nav-item" >
+        
+        <li class="nav-item" >
           <% if logged_in?%>
-            <%= link_to "Create Article", new_article_path , class: "nav-link" , id:"navlink"%>
+            <%= link_to "Create Article", new_article_path , class: "nav-link" , id:"navlink"%> 
         </li>
         <li> 
           <div class="dropdown">
@@ -27,11 +29,14 @@
                  
                   <li><%= link_to "View profile", user_path(current_user) , class:'text-white text-decoration-none' %> </li>    
                   <li><%= link_to 'Edit profile', edit_user_path(current_user) , class:'text-white text-decoration-none' %> </li>
-                   
+                  <li><%= link_to 'Show Categories', categories_path , class:'text-white text-decoration-none' %> </li>
+                  <% if current_user.admin?%>
+                  <li><%= link_to 'Create category', new_category_path , class:'text-white text-decoration-none' %> </li>
+                   <%end%>
               </ul>
           </div>
         </li>
-
+          
           <li class="nav-item" >
             <%= button_to "Log out", logout_path , method: :delete , class: "nav-link btn btn-link" , id:"navlink" %>
           </li>

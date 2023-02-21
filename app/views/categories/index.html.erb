@@ -8,6 +8,7 @@
             <div class="card text-center shadow mb-5 bg-body-tertiary rounded">
                 <div class="card-body">
                     <h5 class="card-title text-success"><%= link_to category.name , category_path(category)%></h5>
+                     <h5 class="card-title"><%= pluralize(category.articles.count ,"Article") %></h5>
                 </div>
                 <div class="card-footer text-muted">
                     <small>Created <%=time_ago_in_words(category.created_at)%> ago, edited <%=time_ago_in_words(category.updated_at)%> ago</small>
@@ -19,7 +20,7 @@
     
 </div>
 
-<div class="flickr_pagination ">
-    <%= will_paginate @categories, :container => false%>
-</div>
 
+<div class="flickr_pagination ">
+    <%= will_paginate @categories, :container => false %>
+</div>

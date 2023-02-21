@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
     before_action :require_same_user, only: [:edit , :update , :destroy]
 
     def show    
+        
     end
 
     def index
@@ -17,7 +18,7 @@ class ArticlesController < ApplicationController
 
    
     def create
-        @article = Article.new(params.require(:article).permit(:title, :description))
+        @article = Article.new(params.require(:article).permit(:title, :description, category_ids:[]))
         @article.user = current_user  
         if @article.save
             flash[:notice] = "Article was created succesfully!"
@@ -32,7 +33,7 @@ class ArticlesController < ApplicationController
 
     def update
         @article = Article.find(params[:id])
-        if @article.update(params.require(:article).permit(:title, :description))
+        if @article.update(params.require(:article).permit(:title, :description, category_ids:[]))
             flash[:notice]= "Article was updated succesfully!"
             redirect_to @article
         else
